@@ -20,7 +20,9 @@ def fib(number):
         is_count = True
         count = fib.count
 
-    if number == 0 or number == 1:
+    if number == 0:
+        return 0
+    if number in [1, 2]:
         return 1
     else:
         number_1 = number-1

@@ -17,7 +17,7 @@ def trace(func):
 
     @wraps(func)
     def wrapper(*args, **kwargs):
-        wrapper.count = wrapper.count + 1
+        wrapper.count += 1
         count = wrapper.count
 
         func_name = func.__name__
