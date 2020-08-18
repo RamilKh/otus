@@ -77,7 +77,7 @@ if __name__ == '__main__':
     print('####################################################')
     print('5. ДЕКОРАТОР ВЛОЖЕННЫХ ФУНКЦИЙ НА ПРИМЕРЕ ФАКТОРИАЛА')
 
-    input_number = 10
+    input_number = 5
     output = factorial(input_number)
     print()
     print(f'Факториал {input_number} равен', output)

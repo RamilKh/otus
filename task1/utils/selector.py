@@ -1,6 +1,7 @@
 """
 Функция selector - принимает на взод список из целых чисел, и возвращает
-только чётные/нечётные/простые числа (выбор производится передачей дополнительного аргумента)
+только чётные/нечётные/простые числа (выбор производится передачей
+дополнительного аргумента)
 """
 
 
@@ -20,7 +21,7 @@ def is_odd(number):
     return True
 
 
-# возвращает простое ли число - простое условие, что число не простые (1, четные)
+# возвращает простое ли число - условие, что число не простые (1, четные)
 def is_simple_waste(number):
     if number < 2:
         return False
@@ -28,7 +29,7 @@ def is_simple_waste(number):
     elif number == 2:
         return True
 
-    elif is_odd(number) == True:
+    elif is_odd(number) is True:
         return True
 
     return False
@@ -54,7 +55,7 @@ def selector(numbers, select=''):
         return list(filter(is_odd, numbers))
 
     elif select == 'simple':
-        # отфильтровать числа, которые точно не простые (1 и четные) - чтобы зря не тратить ресурсы
+        # отфильтровать числа, которые точно не простые (1 и четные)
         numbers = list(filter(is_simple_waste, numbers))
 
         # отфильтровать числа с расчетом

@@ -8,7 +8,7 @@ from functools import wraps
 def trace(func):
     def get_space(number):
         space = ''
-        index = 0;
+        index = 0
         while index < number:
             space = space + '---'
             index += 1
