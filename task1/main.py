@@ -1,4 +1,4 @@
-from task1.utils import do_fib, raise_power, timer_raise_power, selector, factorial
+from task1.utils import do_fib, raise_power, timer_raise_power, selector
 from enum import Enum, unique
 
 
@@ -70,14 +70,3 @@ if __name__ == '__main__':
     output = do_fib(input_number)
     print()
     print(f'Ряд чисел Фибоначчи до {input_number} ряда:', output)
-
-    #####################################################################################
-    print()
-    print()
-    print('####################################################')
-    print('5. ДЕКОРАТОР ВЛОЖЕННЫХ ФУНКЦИЙ НА ПРИМЕРЕ ФАКТОРИАЛА')
-
-    input_number = 5
-    output = factorial(input_number)
-    print()
-    print(f'Факториал {input_number} равен', output)
