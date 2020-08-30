@@ -28,7 +28,7 @@ if __name__ == '__main__':
     print()
     print('#####################################')
     print('2. Корабль')
-    ship = Ship(speed=100, name='Круизный лайнер BlueDream')
+    ship = Ship(speed=100, fuel=130, name='Круизный лайнер BlueDream')
     print(ship.__doc__)
     print(ship)
     print()

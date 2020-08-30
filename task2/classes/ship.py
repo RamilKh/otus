@@ -24,6 +24,9 @@ class Ship(Vehicle):
         if 'name' in kwargs:
             self.name = kwargs['name']
 
+        if 'fuel' in kwargs:
+            self.fuel = kwargs['fuel']
+
         if 'displacement' in kwargs:
             self.displacement = kwargs['displacement']
 
