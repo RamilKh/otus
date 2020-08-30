@@ -1,4 +1,4 @@
-from task2.classes import Vehicle, Ship, Aircraft, Car, AutoCar, BusCar, CargoAircraft, MilitaryShip
+from task2.classes import Ship, Aircraft, Car, AutoCar, BusCar, CargoAircraft, MilitaryShip
 from task2.configs.const import Color, CitiesDirectory, WeatherDirectory
 from task2.classesdata import Weather
 
@@ -116,4 +116,3 @@ if __name__ == '__main__':
     cargoAircraft.supply(CitiesDirectory.SAMARA, CitiesDirectory.NOVGOROD)
 
     cargoAircraft.supply(CitiesDirectory.MOSCOW, CitiesDirectory.PETERBURG)
-

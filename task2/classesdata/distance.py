@@ -31,7 +31,8 @@ class Distance:
         :return:
         """
         for city in self.data:
-            if (city['city_from'] == city_from and city['city_to'] == city_to) or (city['city_to'] == city_from and city['city_from'] == city_to):
+            if (city['city_from'] == city_from and city['city_to'] == city_to) or \
+                    (city['city_to'] == city_from and city['city_from'] == city_to):
                 return city[speed_type.name]
 
     # добавить дистанцию

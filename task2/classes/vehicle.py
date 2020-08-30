@@ -11,36 +11,36 @@ class VehicleABC(metaclass=ABCMeta):
     @staticmethod
     @abstractmethod
     def get_distance(self):
-        raise NotImplemented
+        raise NotImplementedError
 
     @staticmethod
     @abstractmethod
     def get_name(self):
-        raise NotImplemented
+        raise NotImplementedError
 
     @abstractmethod
     def get_name(self):
-        raise NotImplemented
+        raise NotImplementedError
 
     @abstractmethod
     def get_speed(self):
-        raise NotImplemented
+        raise NotImplementedError
 
     @abstractmethod
     def go(self):
-        raise NotImplemented
+        raise NotImplementedError
 
     @abstractmethod
     def refuel(self):
-        raise NotImplemented
+        raise NotImplementedError
 
     @abstractmethod
     def repair(self):
-        raise NotImplemented
+        raise NotImplementedError
 
     @abstractmethod
     def extreme(self):
-        raise NotImplemented
+        raise NotImplementedError
 
 
 class Vehicle(VehicleABC):
@@ -130,18 +130,17 @@ class Vehicle(VehicleABC):
         else:
             self.fuel += value
 
-        print(f'Заправились, топливо: {self.fuel} л.')
+        print('Заправились, топливо: {self.fuel} л.')
 
     # починить
     def repair(self):
         if self.state == StateDirectory.REPAIRING:
             self.state = StateDirectory.OK
-            print(f'Отремонтировали')
+            print('Отремонтировали')
         else:
-            print(f'Уже отремонтировали')
+            print('Уже отремонтировали')
 
     # поломать
     def extreme(self):
         self.state = StateDirectory.REPAIRING
-        print(f'Поломались')
-
+        print('Поломались')

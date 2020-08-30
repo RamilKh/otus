@@ -1,7 +1,7 @@
 from .vehicle import Vehicle
 from task2.configs.const import SpeedDirectory, WeightDirectory, WeatherDirectory
 from task2.classesdata import Distance
-from task2.exceptions import FuelDeficiencyException, VehicleStateException, WeatherStateException
+from task2.exceptions import FuelDeficiencyException, WeatherStateException
 
 
 class Ship(Vehicle):
@@ -109,7 +109,7 @@ class MilitaryShip(Ship):
 
     def shoot_rocket(self, rockets=1):
         if self.rockets < rockets:
-            print(f'Недостаточно ракет для выстрела')
+            print('Недостаточно ракет для выстрела')
             return
 
         self.rockets -= rockets
