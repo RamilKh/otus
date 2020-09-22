@@ -47,11 +47,12 @@ def get():
 
 
 if __name__ == '__main__':
-    # parsing ans saving in BD
+
     try:
+        # parsing ans saving in BD
         run()
+
+        # view all records
+        get()
     except Exception as error:
         logger.error(error)
-
-    # view all records
-    get()
