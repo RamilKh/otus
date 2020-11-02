@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Containers - list{% endblock %}
+
+{% block name %}Docker containers{% endblock %}
+
+{% block body %}
+    <div class="page page_default">
+        <div class="page__inner">
+            <div class="block">
+                <a class="link" href="{{ url_for('admin.containers_list') }}">Update</a>
+            </div>
+
+            {% if containers|length == 0 %}
+                <div class="block text text_error">Containers not found</div>
+            {% else %}
+                <table class="table">
+                    <thead class="table__thead">
+                        <th class="table__th">Id</th>
+                        <th class="table__th">Name</th>
+                        <th class="table__th">Port</th>
+                        <th class="table__th">Status</th>
+                        <th class="table__th">Date of Create</th>
+                    </thead>
+                    <tbody>
+                    {% for container in containers %}
+                        <tr class="table__tr{{ loop.cycle('', ' table__tr_cycle') }}">
+                            <td class="table__td">
+                                <a href="{{ url_for('admin.containers_item', id=container.id) }}">{{ container.id }}</a>
+                            </td>
+                            <td class="table__td">{{ container.name }}</td>
+                            <td class="table__td">{{ container.port }}</td>
+                            <td class="table__td">{{ container.status }}</td>
+                            <td class="table__td">{{ container.created }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
