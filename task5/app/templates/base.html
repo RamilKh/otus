@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<base href="/">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="appViewport" name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>{% block title %}{% endblock %}</title>
+
+    <link href="{{ url_for('static', filename='reset.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='fonts.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='headline.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='table.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='form.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="page headline headline_blue">
+        <div class="page__inner headline__inner">
+
+            <a href="{{ url_for('admin.index') }}" class="headline__title">Flask start</a>
+
+            <div class="headline__menu">
+                <a href="{{ url_for('admin.containers_list') }}"
+                   class="headline__menu__item{% if page == 'containers' %} headline__menu__item_active{% endif %}"
+                >Containers</a>
+
+                <a href="{{ url_for('admin.about_page') }}"
+                   class="headline__menu__item{% if page == 'about' %} headline__menu__item_active{% endif %}"
+                >About</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="page page_default">
+        <div class="page__inner">
+            <div class="hdr">{% block name %}{% endblock %}</div>
+        </div>
+    </div>
+
+    {% block body %}
+    {% endblock %}
+
+</body>
+</html>

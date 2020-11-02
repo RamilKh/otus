@@ -1,0 +1,62 @@
+.form {
+    margin-bottom: 40px;
+}
+
+.form__form {
+    margin-bottom: 40px;
+}
+
+.form__row {
+    margin-bottom: 10px;
+}
+
+.form__field {
+    width: 500px;
+}
+
+.form__field_code {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.form__field_code input {
+    margin-right: 10px;
+}
+
+
+.form__field_avatar br {
+    clear: both;
+}
+
+.form__field a {
+    color: #5490ec;
+}
+
+.form__field input,
+.form__field select {
+    width: 100%;
+}
+
+.form__label {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: 'SourceSansProMedium';
+    margin-bottom: 5px;
+}
+
+.form__tools {
+    margin-top: 30px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form__error {
+    color: #ef6a6a;
+}
+
+.form__error ul {
+    margin: 5px 20px 2px;
+}

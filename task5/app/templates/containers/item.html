@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Container {{ id }}{% endblock %}
+
+{% block name %}Container {{ id }}{% endblock %}
+
+{% block body %}
+    <div class="page page_default">
+        <div class="page__inner">
+            <div class="block">
+                <a class="link" href="{{ url_for('admin.containers_list') }}">List</a>
+                {% if result is defined %}
+                <br/><a class="link" href="{{ url_for('admin.containers_item', id=id) }}">Update</a>
+                {% endif %}
+            </div>
+
+            {% if result is defined %}
+            <div class="block">
+                <div class="text text_result">{{ result.message }}</div>
+            </div>
+            {% endif %}
+
+            {% if container.id is defined %}
+                <div class="block">
+                    <div class="text">
+                        <span style="display: inline-block;width: 200px;">ID:</span>
+                        <b>{{ container.id }}</b></span>
+                    </div>
+                    <div class="text">
+                        <span style="display: inline-block;width: 200px;">NAME:</span>
+                        <b>{{ container.name }}</b>
+                    </div>
+                    <div class="text">
+                        <span style="display: inline-block;width: 200px;">STATUS:</span>
+                        <b>{{ container.port }}</b>
+                    </div>
+                    <div class="text">
+                        <span style="display: inline-block;width: 200px;">PORT:</span>
+                        <b>{{ container.status }}</b>
+                    </div>
+                    <div class="text">
+                        <span style="display: inline-block;width: 200px;">DATE OF CREATE:</span>
+                        <b>{{ container.created }}</b>
+                    </div>
+                </div>
+
+                <div class="block block_buttons">
+                    <a href="{{ url_for('admin.containers_start', id=container.id) }}" class="button">Start</a>
+                    <a href="{{ url_for('admin.containers_stop', id=container.id) }}" class="button button_warning">Stop</a>
+                    <a href="{{ url_for('admin.containers_clear', id=container.id) }}" class="button button_danger">Remove</a>
+                </div>
+            {% else %}
+                <div class="block text text_error">Container <b>{{ id }}</b> not found</div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
