@@ -10,11 +10,11 @@ def admin_index():
     return redirect(url_for('admin.containers_list'))
 
 
-'''
+"""
 ######################################################
 CONTAINERS
 ######################################################
-'''
+"""
 
 
 @admin_app.route('/containers', endpoint='containers_list')
@@ -140,11 +140,11 @@ def containers_clear(id: str):
     return render_template('containers/item.html', page='containers', id=id, container=container, result=result)
 
 
-'''
+"""
 ######################################################
 PAGES
 ######################################################
-'''
+"""
 
 
 @admin_app.route('/about', endpoint='about_page')
