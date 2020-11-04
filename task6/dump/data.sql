@@ -1,0 +1,1 @@
+INSERT INTO "user" (username, password, name) VALUES ('fastmeet', 'pbkdf2:sha256:150000$NsFMUy4N$33b4397a6b6634e7c6a6c72195d053bdfe61ab0065be3d60f9528b30d7189e0a', 'Fast Meet');

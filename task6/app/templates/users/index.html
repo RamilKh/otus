@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Users - list{% endblock %}
+
+{% block name %}Users{% endblock %}
+
+{% block body %}
+    <div class="page page_default">
+        <div class="page__inner">
+            <div class="block">
+                <a class="link" href="{{ url_for('admin.users_list') }}">Update</a><br/>
+                <a class="link" href="{{ url_for('admin.users_add') }}">Add</a><br/>
+            </div>
+
+            {% if users|length == 0 %}
+                <div class="block text text_error">Users not found</div>
+            {% else %}
+                <table class="table">
+                    <thead class="table__thead">
+                        <th class="table__th">Id</th>
+                        <th class="table__th">Login</th>
+                        <th class="table__th">Name</th>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr class="table__tr{{ loop.cycle('', ' table__tr_cycle') }}">
+                            <td class="table__td">
+                                <a href="{{ url_for('admin.users_edit', id=user.id) }}">{{ user.id }}</a>
+                            </td>
+                            <td class="table__td">{{ user.username }}</td>
+                            <td class="table__td">{{ user.name }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

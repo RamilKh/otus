@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit user{% endblock %}
+
+{% block name %}Edit user{% endblock %}
+
+{% block body %}
+    <div class="page page_default">
+        <div class="page__inner">
+            <div class="block">
+                <a class="link" href="{{ url_for('admin.users_list') }}">List</a>
+            </div>
+
+            <form action="{{ url_for('admin.users_edit', id=id) }}" method="post" class="form">
+                <div class="form__row">
+                    <div class="form__field">
+                        <label class="form__label">Username</label>
+                        <input value="{{ form.username }}" type="text" name="username" minlength="3" required/>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__field">
+                        <label class="form__label">Name</label>
+                        <input value="{{ form.name }}" type="text" name="name" minlength="3" required/>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__field">
+                        <label class="form__label">password</label>
+                        <input value="{{ form.password_new }}" type="text" name="password_new" minlength="4"/>
+                    </div>
+                </div>
+                {% if errors is defined and errors != None %}
+                <div class="form__error">
+                    <div class="text text_error">{{ errors|safe }}</div>
+                </div>
+                {% endif %}
+                <div class="form__tools">
+                    <input type="submit" class="button" value="Save"/>
+                </div>
+            </form>
+            <form action="{{ url_for('admin.users_remove', id=id) }}" method="post" class="form">
+                <input type="submit" class="button button_danger" value="Remove"/>
+            </form>
+        </div>
+    </div>
+{% endblock %}

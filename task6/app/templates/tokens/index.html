@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Tokens - list{% endblock %}
+
+{% block name %}Tokens{% endblock %}
+
+{% block body %}
+    <div class="page page_default">
+        <div class="page__inner">
+            <div class="block">
+                <a class="link" href="{{ url_for('admin.tokens_list') }}">Update</a><br/>
+                <a class="link" href="{{ url_for('admin.tokens_add') }}">Add</a>
+            </div>
+
+            {% if tokens|length == 0 %}
+                <div class="block text text_error">Tokens not found</div>
+            {% else %}
+                <table class="table">
+                    <thead class="table__thead">
+                        <th class="table__th">Id</th>
+                        <th class="table__th">Host</th>
+                        <th class="table__th">Protocol</th>
+                        <th class="table__th">Token</th>
+                        <th class="table__th">Status</th>
+                    </thead>
+                    <tbody>
+                    {% for token in tokens %}
+                        <tr class="table__tr{{ loop.cycle('', ' table__tr_cycle') }}">
+                            <td class="table__td">
+                                <a href="{{ url_for('admin.tokens_edit', id=token.id) }}">{{ token.id }}</a>
+                            </td>
+                            <td class="table__td">{{ token.host }}</td>
+                            <td class="table__td">{{ token.protocol }}</td>
+                            <td class="table__td">{{ token.token }}</td>
+                            <td class="table__td">
+                                {% if token.status == 1 %}
+                                    Active
+                                {% else %}
+                                    No active
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
