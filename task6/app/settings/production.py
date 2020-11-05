@@ -12,7 +12,7 @@ class ProductionSettings(BaseSettings):
 
     # POSTGRES DATABASE
     DATABASE = {
-        'HOST': '192.168.43.211',
+        'HOST': 'otusdb',
         'NAME': 'otusapp',
         'USER': 'otusapp',
         'PASSWORD': 'otusapp',

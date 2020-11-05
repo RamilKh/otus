@@ -1,27 +1,27 @@
 version: "3.7"
 services:
-#  otusdb:
-#    image: postgres:11
-#    container_name: otusdb
-#    restart: always
-#    ports:
-#      - "5433:5432"
-#    environment:
-#      POSTGRES_USER: "otusapp"
-#      POSTGRES_PASSWORD: "otusapp"
-#      POSTGRES_DB: "otusapp"
+  otusdb:
+    image: postgres:11
+    container_name: otusdb
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: "otusapp"
+      POSTGRES_PASSWORD: "otusapp"
+      POSTGRES_DB: "otusapp"
   otusapp:
     build: .
     image: otusapp
     container_name: otusapp
     restart: always
-    command: "sh -c ./entrypoint.sh"
+    command: ["./wait-for-it.sh", "otusdb:5433", "--", "sh", "-c", "./entrypoint.sh"]
     ports:
       - 9091:80
     environment:
       env: 'production'
-#    depends_on:
-#      - otusdb
+    depends_on:
+      - otusdb
 
 networks:
   default:

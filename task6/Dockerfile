@@ -10,4 +10,5 @@ ENV PYTHONUNBUFFERED 1
 RUN pip install pipenv && pipenv install --ignore-pipfile --system
 
 COPY entrypoint.sh .
+COPY wait-for-it.sh .
 COPY app app
