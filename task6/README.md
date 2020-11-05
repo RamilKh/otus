@@ -11,5 +11,5 @@ Run `docker-compose build`
 #### Start application in production mode
 Run `docker-compose -f docker-compose.prod.yml up -d`
 
-#### Insert data for authentication (on application) in first time.
+#### Insert data for authentication (on application) at the first time.
 Dump in `/dump/data.sql`.
