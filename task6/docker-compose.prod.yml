@@ -6,10 +6,8 @@ services:
     restart: always
     ports:
       - "5433:5432"
-    environment:
-      POSTGRES_USER: "otusapp"
-      POSTGRES_PASSWORD: "otusapp"
-      POSTGRES_DB: "otusapp"
+    env_file:
+      - database.env
   otusapp:
     build: .
     image: otusapp
