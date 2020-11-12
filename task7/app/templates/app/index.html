@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+    <h1>Users</h1>
+    <table style="width: 100%;">
+        <tr>
+            <th>ID</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>EMAIL</th>
+            <th>STATUS</th>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td style="text-align: center;">
+                    <a href="/app/{{ user.id }}">{{ user.id }}</a>
+                </td>
+                <td style="text-align: center;">{{ user.first_name }}</td>
+                <td style="text-align: center;">{{ user.last_name }}</td>
+                <td style="text-align: center;">{{ user.email }}</td>
+                <td style="text-align: center;">{{ user.status }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
