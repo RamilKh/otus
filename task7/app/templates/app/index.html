@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Users</title>
-</head>
-<body>
-    <h1>Users</h1>
+{% extends 'app/base.html' %}
+
+{% block title %}Page users{% endblock %}
+
+{% block pagename %}Users{% endblock %}
+
+{% block body %}
     <table style="width: 100%;">
         <tr>
             <th>ID</th>
@@ -26,5 +25,4 @@
             </tr>
         {% endfor %}
     </table>
-</body>
-</html>
+{% endblock %}

@@ -4,7 +4,7 @@ class BaseSettings:
     # POSTGRES DATABASE
     DATABASE = {
         'HOST': '127.0.0.1',
-        'NAME': 'otus',
-        'USER': 'otus',
-        'PASSWORD': 'otus',
+        'NAME': 'otus7',
+        'USER': 'otus7',
+        'PASSWORD': 'otus7',
     }
