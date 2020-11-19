@@ -35,6 +35,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+/media
+/*/media
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

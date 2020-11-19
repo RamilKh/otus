@@ -1,0 +1,53 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Page users{% endblock %}
+
+{% block pagename %}Users{% endblock %}
+
+{% load translate_status %}
+
+{% block body %}
+    <div class="block">
+        <a class="link margin_r_20" href="{% url 'app:create' %}">Create</a>
+    </div>
+
+    <table class="table">
+        <thead class="table__thead">
+            <th class="table__th table__th_id">Id</th>
+            <th class="table__th">First name</th>
+            <th class="table__th">Last name</th>
+            <th class="table__th">E-mail</th>
+            <th class="table__th">Department</th>
+            <th class="table__th">Secure code</th>
+            <th class="table__th">Status</th>
+            <th class="table__th">Actions</th>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td class="table__td">
+                    <a href="{% url 'app:detail' user.id %}">{{ user.id }}</a>
+                </td>
+                <td class="table__td">
+                    <div class="table__td__photo">
+                        {% if user.photo %}
+                            <a href="{% url 'app:detail' user.id %}" class="avatar" style="background-image: url('{{ user.photo.url }}')"></a>
+                        {% else %}
+                            <a href="{% url 'app:detail' user.id %}" class="avatar"></a>
+                        {% endif %}
+                        <a href="{% url 'app:detail' user.id %}">{{ user.first_name }}</a>
+                    </div>
+                </td>
+                <td class="table__td">{{ user.last_name }}</td>
+                <td class="table__td">{{ user.email }}</td>
+                <td class="table__td">{{ user.profile.department }}</td>
+                <td class="table__td">{{ user.profile.secure_code }}</td>
+                <td  class="table__td">{{ user.profile.status | translate_status }}</td>
+                <td  class="table__td">
+                    <a href="{% url 'app:edit' user.id %}">Edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

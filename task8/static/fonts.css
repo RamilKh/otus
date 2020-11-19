@@ -1,0 +1,68 @@
+/* - 1. OpenSans */
+@font-face {
+	font-family: 'OpenSansLight';
+	src: url('fonts/open-sans/OpenSans-Light/OpenSans-Light.eot');
+	src: local('☺'),
+		 url('fonts/open-sans/OpenSans-Light/OpenSans-Light.woff') format('woff'),
+		 url('fonts/open-sans/OpenSans-Light/OpenSans-Light.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'OpenSansRegular';
+	src: url('fonts/open-sans/OpenSans-Regular/OpenSans-Regular.eot');
+	src: local('☺'),
+		 url('fonts/open-sans/OpenSans-Regular/OpenSans-Regular.woff') format('woff'),
+		 url('fonts/open-sans/OpenSans-Regular/OpenSans-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'OpenSansBold';
+	src: url('fonts/open-sans/OpenSans-Bold/OpenSans-Bold.eot');
+	src: local('☺'),
+		 url('fonts/open-sans/OpenSans-Bold/OpenSans-Bold.woff') format('woff'),
+		 url('fonts/open-sans/OpenSans-Bold/OpenSans-Bold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* - 2. Source Sans Pro */
+@font-face {
+	font-family: 'SourceSansProLight';
+	src: url('fonts/source-sans-pro/SourceSansPro-Light/SourceSansPro-Light.eot');
+	src: local('☺'),
+		 url('fonts/source-sans-pro/SourceSansPro-Light/SourceSansPro-Light.woff') format('woff'),
+		 url('fonts/source-sans-pro/SourceSansPro-Light/SourceSansPro-Light.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'SourceSansProRegular';
+	src: url('fonts/source-sans-pro/SourceSansPro-Regular/SourceSansPro-Regular.eot');
+	src: local('☺'),
+		 url('fonts/source-sans-pro/SourceSansPro-Regular/SourceSansPro-Regular.woff') format('woff'),
+		 url('fonts/source-sans-pro/SourceSansPro-Regular/SourceSansPro-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'SourceSansProMedium';
+	src: url('fonts/source-sans-pro/SourceSansPro-SemiBold/SourceSansPro-SemiBold.eot');
+	src: local('☺'),
+		 url('fonts/source-sans-pro/SourceSansPro-SemiBold/SourceSansPro-SemiBold.woff') format('woff'),
+		 url('fonts/source-sans-pro/SourceSansPro-SemiBold/SourceSansPro-SemiBold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'SourceSansProBold';
+	src: url('fonts/source-sans-pro/SourceSansPro-Bold/SourceSansPro-Bold.eot');
+	src: local('☺'),
+		 url('fonts/source-sans-pro/SourceSansPro-Bold/SourceSansPro-Bold.woff') format('woff'),
+		 url('fonts/source-sans-pro/SourceSansPro-Bold/SourceSansPro-Bold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+} 

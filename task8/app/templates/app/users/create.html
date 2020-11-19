@@ -1,0 +1,45 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Edit user {{ user.id }} {% endblock %}
+
+{% block pagename %}Edit user {{ user.id }} {% endblock %}
+
+{% block body %}
+    <div class="block">
+        <a class="link margin_r_20" href="{% url 'app:users' %}">List</a>
+    </div>
+
+    <form action="{% url 'app:create' %}" class="form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <div class="form__form">
+        {% for field in form %}
+            <div class="form__row">
+                <div class="form__label">{{ field.label_tag }}</div>
+                <div class="form__field form__field_{{ field.name }}">
+                    {{ field }}
+                </div>
+                <div class="form__error">{{ field.errors }}</div>
+            </div>
+        {% endfor %}
+
+        {% for field in form_profile %}
+        <div class="form__row">
+            <div class="form__label">{{ field.label_tag }}</div>
+            <div class="form__field form__field_{{ field.name }}">
+                {{ field }}
+            </div>
+            <div class="form__error">{{ field.errors }}</div>
+        </div>
+        {% endfor %}
+        </div>
+
+        <div class="form__tools">
+            <input type="submit" value="Create" class="button">
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  otusapp:
+    build: .
+    image: otusapp
+    container_name: otusapp
+    restart: always
+    command: "sh -c ./entrypoint.sh"
+    ports:
+      - 9090:80
+    environment:
+      env: 'local'
+
+networks:
+  default:
+    name: otus
