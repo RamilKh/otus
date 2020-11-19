@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>User</title>
-</head>
-<body>
-    <h1>User {{ user.id }}</h1>
+{% extends 'app/base.html' %}
 
-    <p><a href="/app">List</a></p>
+{% block title %}Page user {{ user.id }}{% endblock %}
+
+{% block pagename %}User {{ user.id }}{% endblock %}
+
+{% block body %}
+    <p><a href="/">List</a></p>
 
     <p>FIRST NAME: {{ user.first_name }}</p>
     <p>LAST NAME: {{ user.last_name }}</p>
     <p>EMAIL: {{ user.email }}</p>
     <p>STATUS: {{ user.status }}</p>
-</body>
-</html>
+{% endblock %}

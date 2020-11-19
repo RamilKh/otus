@@ -1,0 +1,4 @@
+DROP DATABASE IF EXISTS otus7;
+CREATE DATABASE otus7;
+CREATE USER otus7  WITH LOGIN password 'otus7';
+GRANT ALL privileges ON DATABASE otus7 TO otus7;

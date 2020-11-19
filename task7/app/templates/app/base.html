@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<base href="/">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="appViewport" name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>{% block title %}{% endblock %}</title>
+
+</head>
+
+<body>
+    <h1>{% block pagename %}{% endblock %}</h1>
+
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+.icon {
+    display: inline-block;
+    background-color: #000;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+
+}
+
+
+/* view */
+.icon_cover {
+    -webkit-mask-size: cover;
+    mask-size: cover;
+}
+
+
+/* color */
+.icon_gray {
+	background-color: #61708b;
+}
+
+.icon_white {
+	background-color: #fff;
+}
+
+
+/* forms */
+.icon_admin {
+    width: 20px;
+    height: 20px;
+    -webkit-mask-image: url('/static/icons/admin.svg');
+    mask-image: url('/static/icons/admin.svg');
+}
+
+.icon_logout {
+    width: 20px;
+    height: 20px;
+    -webkit-mask-image: url('/static/icons/logout.svg');
+    mask-image: url('/static/icons/logout.svg');
+}
+
+.icon_phone {
+    width: 20px;
+    height: 20px;
+    -webkit-mask-image: url('/static/icons/phone.svg');
+    mask-image: url('/static/icons/phone.svg');
+}
