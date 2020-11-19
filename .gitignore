@@ -43,5 +43,5 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-/.idea
+/*/database.env
 /*/.staticfiles
