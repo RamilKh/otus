@@ -13,6 +13,7 @@ class UserCreateForm(forms.Form):
     first_name = forms.CharField(label='First Name', max_length=100, min_length=1, required=True)
     last_name = forms.CharField(label='Last name', max_length=100, min_length=1, required=True)
     email = forms.EmailField(label='E-mail', max_length=100, min_length=3, required=True)
+    photo = forms.ImageField(label='Фото', required=False)
 
     field_order = ['first_name', 'last_name', 'email']
 
