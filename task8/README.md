@@ -1,4 +1,4 @@
-# Task 7. Django application
+# Task 8. More Django.
 
 #### Build
 Run `docker-compose build`
