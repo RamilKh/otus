@@ -40,13 +40,7 @@
 
         <div class="form__tools">
             <input type="submit" value="Save" class="button">
-        </div>
-    </form>
-
-    <form action="{% url 'app:remove' user.id %}" class="form" method="post">
-        {% csrf_token %}
-        <div class="form__tools">
-            <input type="submit" value="Remove" class="button button_danger">
+            <a class="link color_red" href="{% url 'app:remove' user.id %}">Remove</a>
         </div>
     </form>
 {% endblock %}

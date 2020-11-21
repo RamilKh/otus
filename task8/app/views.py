@@ -203,7 +203,7 @@ class CreateUserView(TemplateView):
 # remove user
 class RemoveUserView(DeleteView):
     model = User
-    template_name = 'app/users/edit.html'
+    template_name = 'app/users/remove.html'
     success_url = reverse_lazy('app:users')
 
     context_object_name = 'user'
