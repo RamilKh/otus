@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Edit user {{ user.id }} {% endblock %}
+
+{% block pagename %}Edit user {{ user.id }} {% endblock %}
+
+{% load translate_status %}
+
+{% block body %}
+    <div class="block">
+        <a class="link margin_r_20" href="{% url 'app:users' %}">List</a><br/><br/>
+        <a class="link margin_r_20" href="{% url 'app:edit' user.id %}">Edit user</a>
+    </div>
+
+    <div class="block text">
+        <p class="margin_b_10">
+            {% if user.photo %}
+                <div class="avatar" style="background-image: url('{{ user.photo.url }}')"></div>
+            {% endif %}
+        </p>
+        <p class="margin_b_10">First name: <b>{{ user.first_name }}</b></p>
+        <p class="margin_b_10">Last name: <b>{{ user.last_name }}</b></p>
+        <p class="margin_b_10">E-mail: <b>{{ user.email }}</b></p>
+        <p class="margin_b_10">Department: <b>{{ user.profile.department }}</b></p>
+        <p class="margin_b_10">Secure code: <b>{{ user.profile.secure_code }}</b></p>
+        <p class="margin_b_10">Status: <b>{{ user.profile.status | translate_status }}</b></p>
+    </div>
+    <div class="block">
+    </div>
+{% endblock %}
