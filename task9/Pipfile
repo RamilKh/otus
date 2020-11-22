@@ -11,6 +11,7 @@ django-debug-toolbar = "==3.1.1"
 pillow = "==8.0.1"
 
 [dev-packages]
+faker = "==4.17.1"
 
 [requires]
 python_version = "3.7"

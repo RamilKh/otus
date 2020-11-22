@@ -1,6 +1,7 @@
 from django.test import TestCase
 from app.models import User, Profile
-import json
+from django.urls import reverse
+from app import views
 
 
 class UserViewTestCase(TestCase):
@@ -26,7 +27,7 @@ class UserViewTestCase(TestCase):
         Profile.objects.all().delete()
 
     def test_index_content(self):
-        response = self.client.get('/')
+        response = self.client.get(reverse('app:users'))
         users = response.context['users']
         page = response.context['page']
 
@@ -39,7 +40,9 @@ class UserViewTestCase(TestCase):
         user = User.objects.filter(email__exact='alex@gmail.com').first()
 
         # get user from view
-        response = self.client.get(f'/detail/{user.id}/')
+        response = self.client.get(
+            reverse('app:detail', kwargs={'pk': user.id})
+        )
         user_page = response.context['user']
         page = response.context['page']
 
@@ -48,7 +51,9 @@ class UserViewTestCase(TestCase):
         self.assertEqual(page, 'users')
 
     def test_detail_not_found_content(self):
-        response = self.client.get(f'/detail/90000/')
+        response = self.client.get(
+            reverse('app:detail', kwargs={'pk': 90000000})
+        )
 
         self.assertEqual(response.status_code, 404)
 
@@ -58,11 +63,17 @@ class UserViewTestCase(TestCase):
         user = User.objects.create(first_name='Harry1', last_name='Gordon1', email='harry1@gmail.com', profile=profile)
 
         # create
-        response = self.client.post(f'/create/', data=user, content_type='json')
+        response = self.client.post(
+            reverse('app:create'),
+            data=user,
+            content_type='json'
+        )
         self.assertEqual(response.status_code, 200)
 
         # get user from view
-        response = self.client.get(f'/detail/{user.id}/')
+        response = self.client.get(
+            reverse('app:detail', kwargs={'pk': user.id})
+        )
         user_page = None
         if 'user' in response.context:
             user_page = response.context['user']
@@ -72,7 +83,7 @@ class UserViewTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_about_content(self):
-        response = self.client.get('/about/')
+        response = self.client.get(reverse('app:about'))
         page = response.context['page']
 
         self.assertEqual(page, 'about')
