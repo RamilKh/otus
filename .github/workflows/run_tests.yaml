@@ -21,10 +21,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pipenv
+          cd task10
           pipenv install
       - name: Install dependencies
         run: |
+          cd task10
           pipenv sync
       - name: Run pytest
         run: |
+          cd task10
           pytest -s -vv
