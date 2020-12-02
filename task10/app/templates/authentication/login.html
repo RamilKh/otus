@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<base href="/">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta id="appViewport" name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Login</title>
+
+    <link href="{{ url_for('static', filename='reset.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='fonts.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='headline.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='table.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='form.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="auth">
+        <div class="auth__inner">
+
+            <div class="auth__title">Авторизация</div>
+
+            <form class="form" method="post" action="{{ url_for('admin.login') }}">
+                <div class="auth__form">
+                    <div class="auth__form__field">
+                        <input class="input" type="text" name="username" value="{{ form.username }}" minlength="2" max="100" required>
+                    </div>
+                    <div class="auth__form__field">
+                        <input class="input" type="password" name="password" value="{{ form.password }}" minlength="2" max="100" required>
+                    </div>
+                </div>
+
+                {% if error is defined and error != None %}
+                <div class="form__error">
+                    <div class="error">{{ error|safe }}</div>
+                </div>
+                {% endif %}
+
+                <div class="auth__tools">
+                    <input type="submit" value="Войти" class="button">
+                </div>
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit token{% endblock %}
+
+{% block name %}Edit token{% endblock %}
+
+{% block body %}
+    <div class="page page_default">
+        <div class="page__inner">
+            <div class="block">
+                <a class="link" href="{{ url_for('admin.tokens_list') }}">List</a>
+            </div>
+
+            <form action="{{ url_for('admin.tokens_edit', id=id) }}" method="post" class="form">
+                <div class="form__row">
+                    <div class="form__field">
+                        <label class="form__label">Host</label>
+                        <input value="{{ form.host }}" type="text" name="host" minlength="3" required/>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__field">
+                        <label class="form__label">Protocol</label>
+                        <input value="{{ form.protocol }}" type="text" name="protocol" minlength="3" required/>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__field">
+                        <label class="form__label">Token</label>
+                        <input value="{{ form.token }}" type="text" name="token" minlength="10" required/>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__field">
+                        <label class="form__label">Status</label>
+                        <select name="status" required>
+                            <option value="0"{% if form.status==0 %} selected{% endif %}>No active</option>
+                            <option value="1"{% if form.status==1 %} selected{% endif %}>Active</option>
+                        </select>
+                    </div>
+                </div>
+                {% if errors is defined and errors != None %}
+                <div class="form__error">
+                    <div class="text text_error">{{ errors|safe }}</div>
+                </div>
+                {% endif %}
+                <div class="form__tools">
+                    <input type="submit" class="button" value="Save"/>
+                </div>
+            </form>
+            <form action="{{ url_for('admin.tokens_remove', id=id) }}" method="post" class="form">
+                <input type="submit" class="button button_danger" value="Remove"/>
+            </form>
+        </div>
+    </div>
+{% endblock %}

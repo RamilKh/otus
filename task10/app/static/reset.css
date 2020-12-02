@@ -1,0 +1,133 @@
+/* reset */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  vertical-align: baseline;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+}
+blockquote,
+q {
+  quotes: none;
+}
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+caption,
+td,
+th {
+  vertical-align: middle;
+  text-align: left;
+}
+form {
+  margin: 0;
+}
+textarea,
+input,
+select {
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: block;
+  color: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+}
+* html h1,
+* html h2,
+* html h3,
+* html h4,
+* html h5,
+* html h6 {
+  font-weight: normal;
+}
+*+html h1,
+*+html h2,
+*+html h3,
+*+html h4,
+*+html h5,
+*+html h6 {
+  font-weight: normal;
+}
+header,
+nav,
+section,
+article,
+aside,
+footer {
+  display: block;
+}

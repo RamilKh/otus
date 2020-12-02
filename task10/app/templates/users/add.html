@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Add user{% endblock %}
+
+{% block name %}Add user{% endblock %}
+
+{% block body %}
+    <div class="page page_default">
+        <div class="page__inner">
+            <div class="block">
+                <a class="link" href="{{ url_for('admin.users_list') }}">List</a>
+            </div>
+
+            <form action="{{ url_for('admin.users_add') }}" method="post" class="form">
+                <div class="form__row">
+                    <div class="form__field">
+                        <label class="form__label">Username</label>
+                        {% if form is defined %}
+                            <input value="{{ form.username }}" type="text" name="username" minlength="3" required/>
+                        {% else %}
+                            <input type="text" name="username" minlength="3" required/>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__field">
+                        <label class="form__label">Name</label>
+                        {% if form is defined %}
+                            <input value="{{ form.name }}" type="text" name="name" minlength="3" required/>
+                        {% else %}
+                            <input type="text" name="name" minlength="3" required/>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__field">
+                        <label class="form__label">Password</label>
+                        {% if form is defined %}
+                            <input value="{{ form.password }}" type="text" name="password" minlength="4" required/>
+                        {% else %}
+                            <input type="text" name="password" minlength="4" required/>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if errors is defined and errors != None %}
+                <div class="form__error">
+                    <div class="text text_error">{{ errors|safe }}</div>
+                </div>
+                {% endif %}
+                <div class="form__tools">
+                    <input type="submit" class="button" value="Save"/>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

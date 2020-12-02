@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}Add token{% endblock %}
+
+{% block name %}Add token{% endblock %}
+
+{% block body %}
+    <div class="page page_default">
+        <div class="page__inner">
+            <div class="block">
+                <a class="link" href="{{ url_for('admin.tokens_list') }}">List</a>
+            </div>
+
+            <form action="{{ url_for('admin.tokens_add') }}" method="post" class="form">
+                <div class="form__row">
+                    <div class="form__field">
+                        <label class="form__label">Host</label>
+                        {% if form is defined %}
+                            <input value="{{ form.host }}" type="text" name="host" minlength="3" required/>
+                        {% else %}
+                            <input type="text" name="host" minlength="3" required/>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__field">
+                        <label class="form__label">Protocol</label>
+                        {% if form is defined %}
+                            <input value="{{ form.protocol }}" type="text" name="protocol" minlength="3" required/>
+                        {% else %}
+                            <input type="text" name="protocol" minlength="3" required/>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__field">
+                        <label class="form__label">Token</label>
+                        {% if form is defined %}
+                            <input value="{{ form.token }}" type="text" name="token" minlength="10" required/>
+                        {% else %}
+                            <input type="text" name="token" minlength="10" required/>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__field">
+                        <label class="form__label">Status</label>
+                        {% if form is defined %}
+                            <select name="status" required>
+                                <option value="0"{% if form.status=='0' %} selected{% endif %}>No active</option>
+                                <option value="1"{% if form.status=='1' %} selected{% endif %}>Active</option>
+                            </select>
+                        {% else %}
+                            <select name="status" required>
+                                <option value="0" selected>No active</option>
+                                <option value="1">Active</option>
+                            </select>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if errors is defined and errors != None %}
+                <div class="form__error">
+                    <div class="text text_error">{{ errors|safe }}</div>
+                </div>
+                {% endif %}
+                <div class="form__tools">
+                    <input type="submit" class="button" value="Save"/>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
