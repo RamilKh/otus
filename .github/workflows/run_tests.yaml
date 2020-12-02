@@ -20,8 +20,6 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          ENV env 'production'
-          ENV PYTHONUNBUFFERED 1
           pip install pipenv
           pipenv install --ignore-pipfile --system
       - name: Run pytest
