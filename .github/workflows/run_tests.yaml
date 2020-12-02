@@ -21,7 +21,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pipenv
-          pipenv install --ignore-pipfile --system
+          pipenv install --ignore-pipfile
       - name: Run pytest
         run: |
           cd task10
