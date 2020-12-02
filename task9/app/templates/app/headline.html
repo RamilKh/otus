@@ -1,0 +1,22 @@
+<div class="page headline headline_blue">
+    <div class="page__inner headline__inner">
+
+        <a href="{% url 'app:users' %}" class="headline__title">Otus django work</a>
+
+        <div class="headline__menu">
+            <a href="{% url 'app:users' %}"
+               class="headline__menu__item{% if page == 'users' %} headline__menu__item_active{% endif %}"
+            >Users</a>
+            <a href="{% url 'app:about' %}"
+               class="headline__menu__item{% if page == 'about' %} headline__menu__item_active{% endif %}"
+            >About</a>
+        </div>
+
+        <div class="headline__tools">
+            <a href="{% url 'admin:index' %}" class="headline__tools__item" title="Goto admin">
+                <span class="icon icon_admin"></span>
+            </a>
+        </div>
+
+    </div>
+</div>
