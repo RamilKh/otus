@@ -29,8 +29,6 @@ services:
     volumes:
       - ./staticfiles:/app/staticfiles
       - ./media:/app/media
-    ports:
-      - 9091:80
     environment:
       env: 'production'
     depends_on:

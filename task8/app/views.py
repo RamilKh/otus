@@ -4,8 +4,13 @@ from django.shortcuts import (
 )
 import os
 from app.models import User, Profile
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import (
+    TemplateView, ListView, DetailView,
+    CreateView, DeleteView, UpdateView,
+)
+from django.urls import reverse_lazy
 from app.forms import UserEditForm, UserCreateForm, ProfileEditForm, ProfileCreateForm
+from django.core.files.storage import FileSystemStorage
 
 
 # list of users
@@ -27,15 +32,23 @@ class DetailUserView(DetailView):
     template_name = 'app/users/detail.html'
     context_object_name = 'user'
 
-    def get_queryset(self):
-        pk = self.kwargs.get('pk', None)
-        q = super().get_queryset()
-        return q.filter(id=pk).select_related('profile')
+    queryset = User.objects.select_related('profile')
 
     extra_context = {'page': 'users'}
 
 
 # edit user
+class EditUserViewNew(TemplateView):
+    model = User
+    template_name = 'app/users/edit.html'
+    success_url = reverse_lazy('app:users')
+
+    context_object_name = 'user'
+    queryset = User.objects.select_related('profile')
+
+    extra_context = {'page': 'users'}
+
+
 class EditUserView(TemplateView):
     template_name = 'app/users/edit.html'
 
@@ -43,22 +56,21 @@ class EditUserView(TemplateView):
         context = super().get_context_data(**kwargs)
 
         # data
-        id = kwargs['id']
+        id = kwargs['pk']
         user = get_object_or_404(User, id=id)
 
         # return
         context['page'] = 'users'
-        context['id'] = id
         context['user'] = user
         context['form'] = UserEditForm(instance=user)
         context['form_profile'] = ProfileEditForm(instance=user.profile)
 
         return context
 
-    def post(self, request, id, **kwargs):
+    def post(self, request, pk, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        user = get_object_or_404(User, id=id)
+        user = get_object_or_404(User, id=pk)
         form = UserEditForm(request.POST, request.FILES, instance=user)
         form_profile = ProfileEditForm(request.POST, instance=user.profile)
 
@@ -114,12 +126,23 @@ class EditUserView(TemplateView):
 
         context['form'] = form
         context['form_profile'] = form_profile
-        context['id'] = id
 
         return render(request, self.template_name, context)
 
 
 # create user
+class CreateUserViewNew(CreateView):
+    model = User
+    template_name = 'app/users/create.html'
+    success_url = reverse_lazy('app:users')
+
+    context_object_name = 'user'
+    queryset = User.objects.select_related('profile')
+
+    extra_context = {'page': 'users'}
+    fields = ['first_name', 'last_name', 'email', 'photo']
+
+
 class CreateUserView(TemplateView):
     template_name = 'app/users/create.html'
 
@@ -136,7 +159,7 @@ class CreateUserView(TemplateView):
     def post(self, request, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        form = UserCreateForm(request.POST)
+        form = UserCreateForm(request.POST, request.FILES)
         form_profile = ProfileCreateForm(request.POST)
 
         try:
@@ -149,12 +172,22 @@ class CreateUserView(TemplateView):
                 )
 
                 # создать юзера
+                photo = None
+                if request.FILES['photo'] is not None:
+                    photo = 'photo/' + request.FILES['photo'].name
+
                 User.objects.create(
                     first_name=form.data.get('first_name'),
                     last_name=form.data.get('last_name'),
                     email=form.data.get('email'),
                     profile=profile,
+                    photo=photo,
                 )
+
+                # сохранить фото
+                if photo is not None:
+                    fs = FileSystemStorage()
+                    fs.save(photo, request.FILES['photo'])
 
                 return redirect(reverse('app:users'))
 
@@ -168,32 +201,15 @@ class CreateUserView(TemplateView):
 
 
 # remove user
-class RemoveUserView(TemplateView):
-    template_name = 'app/users/edit.html'
+class RemoveUserView(DeleteView):
+    model = User
+    template_name = 'app/users/remove.html'
+    success_url = reverse_lazy('app:users')
 
-    def get(self, request, id, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['id'] = id
+    context_object_name = 'user'
+    queryset = User.objects.select_related('profile')
 
-        user = get_object_or_404(User, id=id)
-
-        try:
-            user.delete()
-            if user.photo:
-                if os.path.isfile(user.photo.path):
-                    os.remove(user.photo.path)
-
-            if user.profile is not None:
-                user.profile.delete()
-
-            return redirect(reverse('app:users'))
-
-        except Exception as error:
-            context['form'] = UserEditForm(instance=user)
-            context['form_profile'] = ProfileEditForm(instance=user.profile)
-            context['error'] = str(error)
-
-        return render(request, self.template_name, context=context)
+    extra_context = {'page': 'users'}
 
 
 # about
