@@ -27,5 +27,4 @@ jobs:
           pipenv sync
       - name: Run pytest
         run: |
-          cd task10
           pytest -s -vv
