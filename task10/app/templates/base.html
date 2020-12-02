@@ -24,13 +24,9 @@
             <a href="{{ url_for('admin.index') }}" class="headline__title">Otus</a>
 
             <div class="headline__menu">
-                <a href="{{ url_for('admin.tokens_list') }}"
-                   class="headline__menu__item{% if page == 'tokens' %} headline__menu__item_active{% endif %}"
-                >Tokens</a>
+                <a href="{{ url_for('admin.tokens_list') }}" class="headline__menu__item{% if page == 'tokens' %} headline__menu__item_active{% endif %}">Tokens</a>
 
-                <a href="{{ url_for('admin.users_list') }}"
-                   class="headline__menu__item{% if page == 'users' %} headline__menu__item_active{% endif %}"
-                >Users</a>
+                <a href="{{ url_for('admin.users_list') }}" class="headline__menu__item{% if page == 'users' %} headline__menu__item_active{% endif %}">Users</a>
             </div>
 
         </div>

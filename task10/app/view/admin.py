@@ -30,6 +30,10 @@ TOKENS
 """
 
 
+def admin_test():
+    return query_all(Tokens)
+
+
 @admin_app.route('/tokens', endpoint='tokens_list')
 def admin_tokens_list():
     tokens = query_all(Tokens)
