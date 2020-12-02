@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Remove user {{ user.id }} {% endblock %}
+
+{% block pagename %}Remove user {{ user.id }} {% endblock %}
+
+{% block body %}
+    <div class="block">
+        Are you sure you want to delete the user ?
+    </div>
+
+    <form action="{% url 'app:remove' user.id %}" class="form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <div class="form__tools" style="width: 300px">
+            <input type="submit" value="Yes" class="button">
+            <a class="button button_danger" href="{% url 'app:users' %}">No</a>
+        </div>
+    </form>
+
+{% endblock %}

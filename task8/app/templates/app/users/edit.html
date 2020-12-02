@@ -9,7 +9,7 @@
         <a class="link margin_r_20" href="{% url 'app:users' %}">List</a>
     </div>
 
-    <form action="{% url 'app:edit' id %}" class="form" method="post" enctype="multipart/form-data">
+    <form action="{% url 'app:edit' user.id %}" class="form" method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
         {% if error %}
@@ -40,7 +40,7 @@
 
         <div class="form__tools">
             <input type="submit" value="Save" class="button">
-            <a class="link color_red" href="{% url 'app:remove' id %}">Remove</a>
+            <a class="link color_red" href="{% url 'app:remove' user.id %}">Remove</a>
         </div>
     </form>
 {% endblock %}
